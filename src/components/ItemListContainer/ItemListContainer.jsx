@@ -1,12 +1,29 @@
 import './ItemListContainer.css'
-const ItemListContainer = ({saludo}) => {
+import React, { useState, useEffect } from 'react';
+import Item from '../Item/Item.jsx';
+const ItemListContainer = ({ saludo }) => {
+
+    const [productos, setProductos] = useState([])
+    const [cargando, setCargando] = useState(true)
+
+
+
+    fetch('https://fakestoreapi.com/products')
+        .then(res => res.json())
+        .then(json => setProductos(json))
+
 
     return (
-        <>
-        <div className = "container">
-            <div>{saludo}</div>
+
+        <div>
+            {
+                productos.map((elemento) => {
+                    return (
+                        <Item key={elemento.id} producto={elemento}></Item>
+                    )
+                })
+            }
         </div>
-        </>
     )
 
 };
