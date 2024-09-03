@@ -3,6 +3,8 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer.
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer.jsx';
+import Contact from './components/Contact/Contact.jsx';
+import About from './components/About/About.jsx';
 
 function App() {
   return (
@@ -10,8 +12,12 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<ItemListContainer />} />
+        <Route path="/categoria/:categoryName" element={<ItemListContainer />} />
         <Route path="/detalle/:id" element={<ItemDetailContainer />} />
-        {/* Aquí puedes añadir más rutas según sea necesario */}
+
+        <Route path="/contacto" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        
       </Routes>
     </Router>
   );

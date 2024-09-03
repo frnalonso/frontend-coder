@@ -1,8 +1,71 @@
-nav { background: #333; padding: 1rem; display: flex; align-items: center; color: white; }
-nav h2 { margin: 0; }
-nav ul { list-style: none; display: flex; padding: 0; margin: 0; }
-nav ul li { margin-left: 1rem; }
-nav ul li a { color: white; text-decoration: none; }
-.cart-widget { margin-left: auto; position: relative; }
-.cart-widget svg { fill: white; width: 24px; height: 24px; cursor: pointer; }
-.cart-widget span { position: absolute; top: -10px; right: -10px; background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px; }
+/* NavBar.css */
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #f8f9fa;
+}
+
+.top-menu {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.logo {
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.cart-widget {
+    margin-bottom: 10px;
+}
+
+.main-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.main-links li {
+    margin: 0 10px;
+}
+
+.main-links a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.main-links a:hover {
+    text-decoration: underline;
+}
+
+.category-menu {
+    background-color: #e9ecef;
+    padding: 10px 0;
+}
+
+.category-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.category-links li {
+    margin: 0 15px;
+}
+
+.category-links a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.category-links a:hover {
+    text-decoration: underline;
+}

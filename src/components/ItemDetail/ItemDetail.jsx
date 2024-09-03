@@ -15,8 +15,8 @@ const ItemDetail = ({producto, verSiguiente, verAnterior}) => {
                 <p>{description}</p>
                 <p>{category}</p>
                 
-                <Boton texto="Ver siguiente" fn={verSiguiente} />
-                <Boton texto="Ver anterior" fn={verAnterior} />
+                <Boton texto="Ver Anterior" fn={verAnterior} />
+                <Boton texto="Ver Siguiente" fn={verSiguiente} />
             
     
                
