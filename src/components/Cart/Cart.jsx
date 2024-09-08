@@ -1,16 +1,28 @@
 //siempre que se hace metodo map en React se debe pasar una key. El elemento padre va con key.
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+import CartItem from "../CartItem/CartItem";
 
 const Cart = () => {
 
-    const {contexto} = useContext(CartContext)
+    const { contexto, cart, vaciarCarrito } = useContext(CartContext)
 
     return (
-        <>
-        <h2>¡Tu carrito de compras!</h2>
-        <div>{contexto}</div>
-        </>
+
+
+        <div>{
+            cart?.map(e => {
+                return (
+                    <CartItem key={e.id} producto={e} />
+                )
+            })
+        }
+
+        <button onClick={vaciarCarrito}>Vaciar carrito</button>
+
+
+        </div>
+
     )
 }
 
