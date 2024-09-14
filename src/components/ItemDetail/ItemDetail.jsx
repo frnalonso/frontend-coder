@@ -6,6 +6,9 @@ import ItemCount from "../ItemCount/ItemCount";
 const ItemDetail = ({producto, verSiguiente, verAnterior}) => {
 
     const {contexto, agregarAlCarrito} = useContext(CartContext)
+    console.log("verprod")
+    console.log(producto)
+    console.log("verprod")
     
     
     const {id, title, image, price, category, description} = producto
