@@ -7,6 +7,7 @@ import Contact from './components/Contact/Contact.jsx';
 import About from './components/About/About.jsx';
 import Cart from './components/Cart/Cart.jsx';
 import { CartContextProvider } from './context/CartContext.jsx';
+import  Checkout  from './components/Checkout/Checkout.jsx';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/categoria/:categoryName" element={<ItemListContainer />} />
         <Route path="/detalle/:id" element={<ItemDetailContainer />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
 
         <Route path="/contacto" element={<Contact />} />
         <Route path="/about" element={<About />} />

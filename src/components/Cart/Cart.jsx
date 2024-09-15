@@ -2,6 +2,7 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import CartItem from "../CartItem/CartItem";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
 
@@ -18,12 +19,26 @@ const Cart = () => {
             })
         }
 
-        <button onClick={vaciarCarrito}>Vaciar carrito</button>
+            {
+                cart.length > 0 ?
+                <>
+                <button onClick={vaciarCarrito}>Vaciar carrito</button>
+                    <Link to="/checkout">
+                        <button>Terminar Compra</button>
+                    </Link>
+                </>
+                    :
+            <Link to="/">
+            <h3>Tu carrito está vacio. Presiona para ver productos.</h3>
+            </Link>
+}
 
 
-        </div>
+        </div >
 
     )
+
+    //dentro de return no se puede poner if por eso usamos los ternarios pq son expresiones y los if son estructuras.
 }
 
 export default Cart;

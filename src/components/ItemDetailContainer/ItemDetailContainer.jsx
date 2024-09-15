@@ -1,49 +1,52 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../services/firebaseConfig";
 
 const ItemDetailContainer = () => {
 
     const [producto, setProducto] = useState({})
+    const [cargando, setCargando] = useState(true)
 
     const { id } = useParams()
     const navigate = useNavigate()
 
-    const verSiguiente = () => {
-        let ruta = id*1 + 1
-        navigate(`/detalle/${ruta}`)
-    }
-    const verAnterior = () => {
-        let ruta = id*1 - 1
-        navigate(`/detalle/${ruta}`)
-    }
-
+ 
     useEffect(() => {
 
-        const fetchProducto = async () => {
+        const mostrarProducto = async () => {
+            setCargando(true)
             try{
 
-                 const res = await fetch(`https://fakestoreapi.com/products/${id}`)
-                 const data = await res.json()
-                //const res = await getProducto(id)
-                setProducto(data)
+                const productoRef = doc(db, "productos", id)
+                const res = await getDoc(productoRef)
+                const data = res.data()
+                const productoFormateado = {id: res.id, ...data}
+                setProducto(productoFormateado);
 
             } catch (error){
                 console.log(error)
             } finally {
-                //setCargando(false)
+                setCargando(false)
                 console.log("true")
             }
         }
 
-        fetchProducto()
+        mostrarProducto()
         
 
     },[id])
 
+    if (cargando) {
+        return (
+            <h2>Cargando...</h2>
+        )
+    }
+
     return(
       
-        <ItemDetail producto = {producto} verSiguiente = {verSiguiente} verAnterior = {verAnterior}/>
+        <ItemDetail producto = {producto} />
     )
 }
 
